@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
+
+:root {
+	/* colors */
+	--white: hsl(0, 0%, 95%);
+	--black: hsl(0, 0%, 15%);
+	--gray: hsl(0, 0%, 65%);
+	--primary: hsl(335, 54%, 49%);
+	--secondary: hsl(50, 37%, 77%);
+
+	/* spacing */
+	--1: 0.25rem;
+	--2: 0.5rem;
+	--3: 0.75rem;
+	--4: 1rem;
+	--5: 1.25rem;
+	--6: 1.75rem;
+	--7: 2.5rem;
+	--8: 3.75rem;
+	--9: 6.25rem;
+	--10: 10rem;
+	--l: 20rem;
+	--xl: 30rem;
+
+	/* fonts */
+	--fs-reg: var(--4);
+	--fs-sm: var(--3);
+	--fs-md: var(--5);
+	--fs-xl: var(--7);
+}
+
+@layer reset {
+	*,
+	*::after,
+	*::before {
+		box-sizing: border-box;
+	}
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	ul,
+	ol,
+	figure {
+		margin: 0;
+	}
+	h1,
+	h2,
+	h3 {
+		line-height: 1;
+	}
+	img {
+		max-width: 100%;
+		display: block;
+	}
+}
+
+@layer base {
+	html {
+		font-family: 'Silkscreen', sans-serif;
+		line-height: 1.5;
+	}
+	body {
+		background-color: var(--white);
+		color: var(--black);
+		margin: 0;
+		font-size: var(--fs-reg);
+		letter-spacing: -0.5px;
+	}
+}
