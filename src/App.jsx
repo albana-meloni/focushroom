@@ -2,17 +2,21 @@
 /* import viteLogo from '/vite.svg'; */
 import './App.css';
 import { Focushi } from './components/Focushi';
+import { Btn } from './components/Btn';
 
 function App() {
 	return (
 		<>
 			<main>
-				<div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+				<div className='flex-column'>
 					<Focushi />
 					<h1>Focushroom</h1>
 					<p>Crecé mientras te concentras</p>
 				</div>
-				<div></div>
+				<div className='flex-column'>
+					<Btn text={'Iniciar sesión'}></Btn>
+					<Btn text={'Registrarme'} type='secondary'></Btn>
+				</div>
 				<small>Albana Creative Studio © 2025</small>
 			</main>
 		</>

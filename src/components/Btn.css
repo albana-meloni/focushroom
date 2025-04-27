@@ -1,0 +1,23 @@
+.btn {
+	font-size: var(--5);
+    font-family: inherit;
+    border: 0;
+    outline: 0;
+	padding-block: var(--3);
+	padding-inline: var(--5);
+    width: var(--l);
+	text-align: center;
+    cursor: pointer;
+}
+.btn-primary {
+	background-color: var(--primary);
+	color: var(--white);
+}
+.btn-secondary {
+	background-color: var(--secondary);
+	color: var(--primary);
+}
+
+.btn:active {
+    transform: scale(0.99);
+}
