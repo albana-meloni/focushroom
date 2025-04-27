@@ -1,12 +1,58 @@
-# React + Vite
+# 🍄 Focushroom
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Focushroom** es una aplicación Pomodoro con estética pixel art, pensada para ayudarte a concentrarte, crecer y alcanzar tus objetivos de manera divertida y eficiente.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tecnologías Utilizadas
 
-## Expanding the ESLint configuration
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [JavaScript (ES6+)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [CSS personalizado](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [PWA - Progressive Web App](https://web.dev/progressive-web-apps/)
+- [Electron](https://www.electronjs.org/) (versión escritorio, próximamente)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🌱 Estado del Proyecto
+
+- 🌐 Versión web en desarrollo.
+- 📱 Implementación como PWA: próximamente.
+- 🖥️ Empaquetado con Electron: próximamente.
+
+---
+
+## 🎯 Funcionalidades principales
+- Temporizador Pomodoro configurable
+- Estética pixel art de diseño propio
+- Guardado de información del usuario
+- Sonidos y efectos visuales al completar ciclos
+- (próximamente) Modo claro y oscuro
+- (próximamente) Estadísticas de productividad
+
+---
+
+## 🛠️ Instalación local
+
+Cloná el proyecto:
+
+```bash
+git clone https://github.com/albana-meloni/focushroom.git
+cd focushroom
+npm install
+npm run dev
+```
+
+---
+
+## 🔀 Flujo de trabajo con ramas
+- ```main```: rama estable para producción.
+- ```dev```: rama de desarrollo principal.
+
+Todo el trabajo diario lo hago en ```dev``` y luego cuando es estable, se mergea a ```main```.
+
+---
+
+## 📋 Licencia
+Proyecto creado con fines educativos y de portfolio.
