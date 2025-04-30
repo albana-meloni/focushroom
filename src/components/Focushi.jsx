@@ -7,18 +7,31 @@ const focushi = {
 
 const audioMp3 = new Audio('/pop-sound.mp3');
 
+const CLICK_COUNT_LIMIT = 22;
+
 export function Focushi() {
     const [sprite, setSprite] = useState('idle');
-    const [sound, setSound] = useState(audioMp3);
+	const [sound, setSound] = useState(audioMp3);
+	const [clickCount, setClickCount] = useState(1);
 
 	const handleClickDown = () => {
-		setSprite('clicked');
-        setSound(audioMp3);
-        sound.currentTime = 0;
-        sound.play();
+		setClickCount((current) => current + 1);
+		if (clickCount < CLICK_COUNT_LIMIT) {
+			setSprite('clicked');
+			setSound(audioMp3);
+			sound.currentTime = 0;
+			sound.play();
+		} else if (clickCount === CLICK_COUNT_LIMIT) {
+			alert("wow, wow, wow... estoy algo mareado");
+			setSprite('clicked');
+		}
 	};
 	const handleClickUp = () => {
-		setSprite('idle');
+		if (clickCount < CLICK_COUNT_LIMIT) {
+			setSprite('idle');
+		} else {
+			setSprite('clicked');
+		}
 		setSound(audioMp3);
 	};
 	return (
