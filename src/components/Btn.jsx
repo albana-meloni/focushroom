@@ -4,7 +4,7 @@ import { Link } from '../Link';
 
 const audioMp3 = new Audio('/pop-sound.mp3');
 
-export function Btn({ text, type = 'primary', link = null, onclick = null }) {
+export function Btn({ children, type = 'primary', link = null, onclick = null }) {
 	const [sound, setSound] = useState(audioMp3);
 
 	const handleClickDown = () => {
@@ -19,7 +19,7 @@ export function Btn({ text, type = 'primary', link = null, onclick = null }) {
 				target='_blank'
 				onMouseDown={handleClickDown}
 				className={`corners btn btn-${type}`}>
-				{text}
+				{children}
 			</Link>
 		);
 	}
@@ -29,13 +29,13 @@ export function Btn({ text, type = 'primary', link = null, onclick = null }) {
 				onClick={onclick}
 				onMouseDown={handleClickDown}
 				className={`corners btn btn-${type}`}>
-				{text}
+				{children}
 			</button>
 		);
 	}
 	return (
 		<button onMouseDown={handleClickDown} className={`corners btn btn-${type}`}>
-			{text}
+			{children}
 		</button>
 	);
 }

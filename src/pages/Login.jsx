@@ -1,6 +1,5 @@
 import { Focushi } from '../components/Focushi';
 import { Btn } from '../components/Btn';
-import { Link } from '../Link';
 
 export function Login() {
 	const currentYear = new Date().getFullYear();
@@ -13,8 +12,8 @@ export function Login() {
 				<p>Crecé mientras te concentras</p>
 			</div>
 			<div className='flex-column'>
-				<Btn text='Iniciar sesión' link='/home'></Btn>
-				<Btn text='Registrarme' type='secondary'></Btn>
+				<Btn link='/home'>Iniciar seisón</Btn>
+				<Btn type='secondary'>Registrarme</Btn>
 			</div>
 			<small>Albana Creative Studio © {currentYear}</small>
 		</>
