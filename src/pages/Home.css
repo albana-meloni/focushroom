@@ -1,0 +1,170 @@
+.home-info {
+	margin-block: var(--7);
+	h2 {
+		font-size: var(--6);
+	}
+}
+.home-background {
+	width: 100%;
+	position: absolute;
+	bottom: var(--2);
+	left: 0;
+}
+
+.pomodoro-chooser {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: var(--7);
+	margin-block: var(--7);
+}
+.pomodoro-chooser > div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.visible-input {
+	background-color: transparent;
+	border: 0;
+	outline: 0;
+	font-family: inherit;
+	font-size: inherit;
+	color: inherit;
+	width: calc(var(--4) * 2);
+}
+
+.suggestion-focushi {
+    display: flex;
+	position: absolute;
+    bottom: 10vh;
+    margin-inline: var(--2);
+    /* animation: fadeIn 1000ms 1000ms forwards; */
+    opacity: 0;
+    cursor: default;
+	p {
+		background-color: white;
+		padding: var(--4);
+		clip-path: polygon(
+			0px calc(100% - 24px),
+			6px calc(100% - 24px),
+			6px calc(100% - 12px),
+			12px calc(100% - 12px),
+			12px calc(100% - 6px),
+			24px calc(100% - 6px),
+			24px 100%,
+			calc(100% - 24px) 100%,
+			calc(100% - 24px) calc(100% - 6px),
+			calc(100% - 12px) calc(100% - 6px),
+			calc(100% - 12px) calc(100% - 12px),
+			calc(100% - 6px) calc(100% - 12px),
+			calc(100% - 6px) calc(100% - 24px),
+			100% calc(100% - 24px),
+			100% 24px,
+			calc(100% - 6px) 24px,
+			calc(100% - 6px) 12px,
+			calc(100% - 12px) 12px,
+			calc(100% - 12px) 6px,
+			calc(100% - 24px) 6px,
+			calc(100% - 24px) 0px,
+			24px 0px,
+			24px 6px,
+			12px 6px,
+			12px 12px,
+			6px 12px,
+			6px 24px,
+			0px 24px
+		);
+		position: relative;
+	}
+	p::after {
+		content: '';
+		position: absolute;
+		clip-path: polygon(
+			0px calc(100% - 24px),
+			6px calc(100% - 24px),
+			6px calc(100% - 12px),
+			12px calc(100% - 12px),
+			12px calc(100% - 6px),
+			24px calc(100% - 6px),
+			24px 100%,
+			calc(100% - 24px) 100%,
+			calc(100% - 24px) calc(100% - 6px),
+			calc(100% - 12px) calc(100% - 6px),
+			calc(100% - 12px) calc(100% - 12px),
+			calc(100% - 6px) calc(100% - 12px),
+			calc(100% - 6px) calc(100% - 24px),
+			100% calc(100% - 24px),
+			100% 24px,
+			calc(100% - 6px) 24px,
+			calc(100% - 6px) 12px,
+			calc(100% - 12px) 12px,
+			calc(100% - 12px) 6px,
+			calc(100% - 24px) 6px,
+			calc(100% - 24px) 0px,
+			24px 0px,
+			24px 6px,
+			12px 6px,
+			12px 12px,
+			6px 12px,
+			6px 24px,
+			0px 24px,
+			0px 50%,
+			6px 50%,
+			6px 24px,
+			12px 24px,
+			12px 12px,
+			24px 12px,
+			24px 6px,
+			calc(100% - 24px) 6px,
+			calc(100% - 24px) 12px,
+			calc(100% - 12px) 12px,
+			calc(100% - 12px) 24px,
+			calc(100% - 6px) 24px,
+			calc(100% - 6px) calc(100% - 24px),
+			calc(100% - 12px) calc(100% - 24px),
+			calc(100% - 12px) calc(100% - 12px),
+			calc(100% - 24px) calc(100% - 12px),
+			calc(100% - 24px) calc(100% - 6px),
+			24px calc(100% - 6px),
+			24px calc(100% - 12px),
+			12px calc(100% - 12px),
+			12px calc(100% - 24px),
+			6px calc(100% - 24px),
+			6px 50%,
+			0px 50%
+		);
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background: #262626;
+		display: block;
+		pointer-events: none;
+	}
+    img {
+        align-self: center;
+        width: var(--9);
+    }
+}
+.suggestion-focushi:focus {
+    animation: fadeOut 1000ms;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

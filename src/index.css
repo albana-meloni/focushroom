@@ -6,7 +6,9 @@
 	--black: hsl(0, 0%, 15%);
 	--gray: hsl(0, 0%, 65%);
 	--primary: hsl(335, 54%, 49%);
+	--primary-dark: hsl(335, 54%, 39%);
 	--secondary: hsl(50, 37%, 77%);
+	--secondary-dark: hsl(50, 37%, 67%);
 
 	/* spacing */
 	--1: 0.25rem;
@@ -50,7 +52,7 @@
 	h1,
 	h2,
 	h3 {
-		line-height: 1;
+		line-height: 1.2;
 	}
 	img {
 		max-width: 100%;

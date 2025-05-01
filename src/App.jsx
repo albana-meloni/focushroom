@@ -2,6 +2,7 @@ import './App.css';
 import { Router } from './Router';
 import { Login } from './pages/Login';
 import { Home } from './pages/Home';
+import { Pomodoro } from './pages/Pomodoro';
 
 function App() {
 	return (
@@ -16,6 +17,10 @@ function App() {
 						path: '/home',
 						Component: Home,
 					},
+					{
+						path: '/pomodoro/:focusTime/:breakTime/:cycles',
+						Component: Pomodoro,
+					}
 				]}
 			/>
 		</main>

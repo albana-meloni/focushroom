@@ -5,18 +5,30 @@
     outline: 0;
 	padding-block: var(--3);
 	padding-inline: var(--5);
-    width: var(--l);
+    width: fit-content;
 	text-align: center;
     cursor: pointer;
 	text-decoration: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-width: 6px;
+	border-style: solid;
 }
 .btn-primary {
 	background-color: var(--primary);
+	border-color: var(--primary-dark);
 	color: var(--white);
 }
 .btn-secondary {
 	background-color: var(--secondary);
+	border-color: var(--secondary-dark);
 	color: var(--primary);
+}
+.btn-spy {
+	background-color: inherit;
+	color: inherit;
+	border: 0;
 }
 
 .btn:active {
