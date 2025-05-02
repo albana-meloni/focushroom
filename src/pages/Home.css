@@ -6,9 +6,10 @@
 }
 .home-background {
 	width: 100%;
+	max-width: 450px;
 	position: absolute;
 	bottom: var(--2);
-	left: 0;
+	margin-inline: auto;
 }
 
 .pomodoro-chooser {
@@ -36,13 +37,13 @@
 }
 
 .suggestion-focushi {
-    display: flex;
+	display: flex;
 	position: absolute;
-    bottom: 10vh;
-    margin-inline: var(--2);
-    /* animation: fadeIn 1000ms 1000ms forwards; */
-    opacity: 0;
-    cursor: default;
+	bottom: 10vh;
+	margin-inline: var(--2);
+	/* animation: fadeIn 1000ms 1000ms forwards; */
+	opacity: 0;
+	cursor: default;
 	p {
 		background-color: white;
 		padding: var(--4);
@@ -143,28 +144,28 @@
 		display: block;
 		pointer-events: none;
 	}
-    img {
-        align-self: center;
-        width: var(--9);
-    }
+	img {
+		align-self: center;
+		width: var(--9);
+	}
 }
 .suggestion-focushi:focus {
-    animation: fadeOut 1000ms;
+	animation: fadeOut 1000ms;
 }
 
 @keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 @keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
 }
