@@ -1,0 +1,17 @@
+.progress-bar {
+    display: block;
+	background-color: var(--secondary);
+	width: 100%;
+	height: var(--6);
+	position: relative;
+	margin-block: var(--4);
+}
+.progress-bar__fill {
+	background-color: var(--primary);
+	height: inherit;
+	border: 6px solid var(--primary-dark);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: attr(data-progress %);
+}

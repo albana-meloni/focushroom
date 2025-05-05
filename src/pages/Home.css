@@ -10,6 +10,7 @@
 	position: absolute;
 	bottom: var(--2);
 	margin-inline: auto;
+	z-index: -999;
 }
 
 .pomodoro-chooser {

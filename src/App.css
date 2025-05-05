@@ -5,6 +5,8 @@ main {
 	align-items: center;
 	justify-content: space-between;
 	min-height: 100vh;
+	max-width: 400px;
+	margin-inline: auto;
 	padding: var(--4);
 	padding-block-start: var(--8);
 }
