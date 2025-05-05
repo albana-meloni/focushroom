@@ -1,16 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Btn } from '../components/Btn';
 
-export function Pomodoro() {
-	/* const focusTime = Number(routeParams.focusTime);
-	const breakTime = Number(routeParams.breakTime); 
-	const cycles = Number(routeParams.cycles); */
-	const focusTime = 0;
-	const breakTime = 0;
-	const cycles = 2;
+export function Pomodoro({ routeParams }) {
+	const focusTime = Number(routeParams.focusTime);
+	const breakTime = Number(routeParams.breakTime);
+	const cycles = Number(routeParams.cycles);
 
 	const [minutes, setMinutes] = useState(focusTime);
-	const [seconds, setSeconds] = useState(5); /* cambiar a cero */
+	const [seconds, setSeconds] = useState(0);
 	const [currentCycle, setCurrentCycle] = useState(1);
 	const [currentState, setCurrentState] = useState(true); /* true: focus / false: break */
 	const [isRunning, setIsRunning] = useState(true);
@@ -28,18 +25,18 @@ export function Pomodoro() {
 				if (minutes > 0) {
 					setMinutes((m) => m - 1);
 					setSeconds(59);
-				} else {
-					if (currentState && currentCycle === cycles * 2) {
+				} else if (minutes === 0) {
+					if (currentState && currentCycle === cycles) {
 						setIsRunning(!isRunning);
-						console.log('🎉 Pomodoro finalizado');
 						clearInterval(interval);
+						/* finalizó el pomodoro */
 						return;
 					}
+					!currentState && setCurrentCycle((c) => c + 1);
 					setCurrentState((prev) => {
 						const isBreak = !prev;
-						isBreak && setCurrentCycle((c) => c + 1);
 						setMinutes(isBreak ? breakTime : focusTime);
-						setSeconds(5); /* cambiar a cero */
+						setSeconds(0);
 						return isBreak;
 					});
 				}
@@ -53,13 +50,14 @@ export function Pomodoro() {
 			<div>
 				<h1>Pomodoro</h1>
 				<p>{currentState ? 'focus' : 'break'}</p>
-				<p>ciclo: {Math.ceil(currentCycle / 2)}</p>
+				<p>ciclo: {currentCycle}</p>
 				<h1>
 					{txtMinutes}:{txtSeconds}
 				</h1>
 				<Btn onclick={() => setIsRunning(!isRunning)}>
 					{isRunning ? 'Pausar pomodoro' : 'Iniciar pomodoro'}
 				</Btn>
+				
 			</div>
 		</>
 	);
