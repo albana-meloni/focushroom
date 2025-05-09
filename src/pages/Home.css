@@ -39,13 +39,14 @@
 
 .suggestion-focushi {
 	display: flex;
+	max-width: 400px;
 	position: absolute;
 	bottom: 10vh;
 	margin-inline: var(--2);
-	/* animation: fadeIn 1000ms 1000ms forwards; */
 	opacity: 0;
 	cursor: default;
 	p {
+		font-size: var(--5);
 		background-color: white;
 		padding: var(--4);
 		clip-path: polygon(
@@ -146,12 +147,16 @@
 		pointer-events: none;
 	}
 	img {
-		align-self: center;
+		align-self: end;
 		width: var(--9);
 	}
 }
-.suggestion-focushi:focus {
-	animation: fadeOut 1000ms;
+
+.suggestion-focushi.show {
+	animation: fadeIn 1000ms forwards;
+}
+.suggestion-focushi.hide {
+	animation: fadeIn 1000ms backwards;
 }
 
 @keyframes fadeIn {
@@ -160,13 +165,5 @@
 	}
 	100% {
 		opacity: 1;
-	}
-}
-@keyframes fadeOut {
-	0% {
-		opacity: 1;
-	}
-	100% {
-		opacity: 0;
 	}
 }

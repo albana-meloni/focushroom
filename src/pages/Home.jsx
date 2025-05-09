@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Btn } from '../components/Btn';
 import { Header } from '../components/Header';
 import './Home.css';
@@ -11,6 +11,18 @@ export function Home() {
 	const [focusTime, setFocusTime] = useState(25);
 	const [breakTime, setBreakTime] = useState(5);
 	const [cycles, setCycles] = useState(4);
+
+	const [showSuggestion, setShowSuggestion] = useState(false);
+
+	const focushpoints = localStorage.getItem('focushpoints');
+
+	useEffect(() => {
+		const timeout = setTimeout(() => {
+			setShowSuggestion(true);
+		}, 1000);
+
+		return () => clearTimeout(timeout);
+	}, []);
 
 	return (
 		<>
@@ -90,26 +102,27 @@ export function Home() {
 							)}
 						</Btn>
 					</div>
-					<Btn link={`/pomodoro/${focusTime}/${breakTime}/${cycles}`}>Iniciar pomodoro</Btn>
+					<Btn link={`/pomodoro/${focusTime}/${breakTime}/${cycles}`}>
+						Iniciar pomodoro
+					</Btn>
 				</div>
 			</section>
-			<img
+			{/* <img
 				className='home-background'
 				src='/casa-base.png'
 				alt='Fondo de la casa concentración'
-			/>
-			<div className='suggestion-focushi'>
-				<p className='corners'>
-					Empieza con tu primera sesión de pomodoro para obtener mushpoints y empezar a construir tu casa Focushroom!
-				</p>
-				<img src="/focushi-idle.png" alt="Focushi" />
-			</div>
-			{/* <p>Focushi recomienda una sesión de 25/5 en 4 ciclos</p>
-				<p>
-					vas a obtener: <strong>100 mushpoints</strong>
-				</p>
-				<img src='/focushi-idle.png' alt='Focushi' />
-				<p>cada 25 mushpoints puedes crear un honguito zen para tu bosque concentración</p> */}
+			/> */}
+			{!focushpoints && showSuggestion && (
+				<div
+					className={`suggestion-focushi ${showSuggestion ? 'show' : 'hide'}`}
+					onClick={() => setShowSuggestion(false)}>
+					<p className='corners'>
+						Si estás 25 mins en focus, durante 4 ciclos, vas a obtener{' '}
+						<strong>100 focushpoints</strong>!!!
+					</p>
+					<img src='/focushi-idle.png' alt='Focushi' />
+				</div>
+			)}
 		</>
 	);
 }

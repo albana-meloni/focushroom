@@ -2,16 +2,16 @@ import { useEffect, useState } from 'react';
 import { Focushi } from './Focushi';
 
 export function Header() {
-    const [points, setPoints] = useState();
+	const [points, setPoints] = useState();
 	useEffect(() => {
-		localStorage.getItem('mushpoints')
-			? setPoints(JSON.parse(localStorage.getItem('mushpoints')))
+		localStorage.getItem('focushpoints')
+			? setPoints(JSON.parse(localStorage.getItem('focushpoints')))
 			: setPoints(0);
 	}, []);
 	return (
 		<header style={styles}>
 			<Focushi />
-			<p>{points} mushpoints</p>
+			<p>{points} focushpoints</p>
 		</header>
 	);
 }

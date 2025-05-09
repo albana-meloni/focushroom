@@ -22,6 +22,8 @@ export function Pomodoro({ routeParams }) {
 	const audioChangeRef = useRef(new Audio('/change-state.mp3'));
 	const audioBreakRef = useRef(new Audio('/break-music.mp3'));
 
+	const prevFocushpoints = JSON.parse(localStorage.getItem('focushpoints'));
+
 	useEffect(() => {
 		if (!isRunning) return;
 
@@ -29,7 +31,6 @@ export function Pomodoro({ routeParams }) {
 			currentState
 				? setProgressFocus(String(((minutes * 60 + seconds) * 100) / (focusTime * 60)))
 				: setProgressBreak(String(((minutes * 60 + seconds) * 100) / (breakTime * 60)));
-
 			if (seconds > 0) {
 				setSeconds((s) => s - 1);
 			} else {
@@ -41,9 +42,10 @@ export function Pomodoro({ routeParams }) {
 						setIsRunning(!isRunning);
 						clearInterval(interval);
 						localStorage.setItem(
-							'mushpoints',
-							JSON.stringify(String(focusTime * cycles))
+							'focushpoints',
+							JSON.stringify(prevFocushpoints + focusTime * cycles)
 						);
+						window.location.href = `/pomodoro/finish/${focusTime * cycles}`;
 						return;
 					}
 					!currentState && setCurrentCycle((c) => c + 1);
@@ -57,12 +59,22 @@ export function Pomodoro({ routeParams }) {
 		}, 1000);
 
 		return () => clearInterval(interval);
-	}, [isRunning, seconds, minutes, focusTime, breakTime, cycles, currentCycle, currentState]);
+	}, [
+		isRunning,
+		seconds,
+		minutes,
+		focusTime,
+		breakTime,
+		cycles,
+		currentCycle,
+		currentState,
+		prevFocushpoints,
+	]);
 
 	useEffect(() => {
 		const audio = audioChangeRef.current;
 		if (!isRunning) return;
-		if (minutes === 0 && (seconds === 0)) {
+		if (minutes === 0 && seconds === 0) {
 			audio.currentTime = 0;
 			audio.volume = 0.5;
 			audio.play();
@@ -87,7 +99,7 @@ export function Pomodoro({ routeParams }) {
 				<p>— {currentState ? 'Tiempo de enfoque' : 'Tiempo de descanso'} —</p>
 			</div>
 			<div className='center'>
-				<p>Vuelta {currentCycle}</p>
+				<p>Vuelta {currentCycle}/{cycles}</p>
 				<p style={styles.timer}>
 					{txtMinutes}:{txtSeconds}
 				</p>
@@ -100,7 +112,7 @@ export function Pomodoro({ routeParams }) {
 
 const styles = {
 	timer: {
-		fontSize: 'calc(var(--fs-xl) * 2)',
+		fontSize: 'calc(var(--fs-xl) * 2.3)',
 		fontWeight: 'bold',
 		color: 'var(--primary)',
 	},

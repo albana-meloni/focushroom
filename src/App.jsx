@@ -3,6 +3,7 @@ import { Router } from './Router';
 import { Login } from './pages/Login';
 import { Home } from './pages/Home';
 import { Pomodoro } from './pages/Pomodoro';
+import { Finish } from './pages/Finish';
 
 function App() {
 	return (
@@ -20,7 +21,11 @@ function App() {
 					{
 						path: '/pomodoro/:focusTime/:breakTime/:cycles',
 						Component: Pomodoro,
-					}
+					},
+					{
+						path: '/pomodoro/finish/:focushpoints',
+						Component: Finish,
+					},
 				]}
 			/>
 		</main>
