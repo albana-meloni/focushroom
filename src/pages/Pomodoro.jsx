@@ -79,7 +79,7 @@ export function Pomodoro({ routeParams }) {
 			audio.volume = 0.5;
 			audio.play();
 		}
-	}, [minutes, seconds, currentState, isRunning]);
+	}, [isRunning, minutes, seconds]);
 
 	useEffect(() => {
 		const audio = audioBreakRef.current;
